@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   end: Alignment.bottomRight,
                   stops: [0.01, 1],
                   colors: [Color(0xff7038f0), Color(0xff86b7f5)],
-                )), child: WeatherShowing(),),
+                )), child: const WeatherShowing(),),
       ),
     );
   }

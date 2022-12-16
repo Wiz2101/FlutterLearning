@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/components/weather_provider.dart';
-import 'package:weather_app/data_remote/weather/impl/weather_service_impl.dart';
-import 'package:weather_app/data_remote/weather/weather_service.dart';
 import 'package:weather_app/model/weather.dart';
 
 class WeatherShowing extends StatefulWidget {
@@ -16,19 +15,9 @@ class WeatherShowing extends StatefulWidget {
 class _Weather extends State<WeatherShowing> {
   late final WeatherProvider weatherProvider;
   final WeatherModel? weatherModel = null;
-  @override
-  Future<void> initState() async {
-    final WeatherService weatherService = WeatherServiceImpl();
-    final fetchedWeather = await weatherService.fetchAPI(10, 20);
-    super.initState();
-
-  }
 
   @override
   Widget build(BuildContext context) {
-
-    final weatherResponse =  weatherProvider.fetchAPI(10, 20);
-
 
     final today = DateTime.now();
     String todayStr = DateFormat('EEE, MMMM  dd  hh:mm aa').format(today);
@@ -40,114 +29,121 @@ class _Weather extends State<WeatherShowing> {
     final overallTemp =
         '$highestTemp / $lowestTemp |  Feels like $feelLikeTemp';
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        padding: const EdgeInsets.only(top: kToolbarHeight),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 30),
-            const Icon(
-              Icons.location_pin,
-              color: Colors.white,
-            ),
-            const SizedBox(height: 5),
-            Text(
-              currentLocation,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w900, color: Colors.white),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              todayStr,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.white.withOpacity(0.5),
-              ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
+    return Consumer<WeatherProvider>(
+      builder: (context, weatherProvider, child) {
+        final currentTemp = weatherProvider.weatherModel?.main?.temp?.round().toString();
+        print(currentTemp);
+
+        return Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Container(
+            width: double.infinity,
+            height: double.infinity,
+            padding: const EdgeInsets.only(top: kToolbarHeight),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'asset/icons/weather/cloudy.png',
+                const SizedBox(height: 30),
+                const Icon(
+                  Icons.location_pin,
+                  color: Colors.white,
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  currentLocation,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w900, color: Colors.white),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  todayStr,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                ),
+                const SizedBox(
                   height: 40,
                 ),
-                const SizedBox(width: 16),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: const [
-                    Text(
-                      '24',
-                      style: TextStyle(
-                        fontSize: 70,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w100,
-                      ),
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'asset/icons/weather/cloudy.png',
+                      height: 40,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        '\u00B0',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
+                    const SizedBox(width: 16),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          currentTemp ?? '',
+                          style: TextStyle(
+                            fontSize: 70,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w100,
+                          ),
                         ),
-                      ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            '\u00B0',
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      ],
                     )
                   ],
+                ),
+                Text(
+                  overallTemp,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white.withOpacity(0.6),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  'Cloudy',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Container(
+                    height: 1,
+                    color: Colors.white.withOpacity(0.6),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'HOURLY',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
                 )
               ],
             ),
-            Text(
-              overallTemp,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Colors.white.withOpacity(0.6),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Cloudy',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Container(
-                height: 1,
-                color: Colors.white.withOpacity(0.6),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'HOURLY',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-              ),
-            )
-          ],
-        ),
-      ),
+          ),
+        );
+      }
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/components/weather_provider.dart';
+import 'package:weather_app/data_remote/weather/weather_service.dart';
 
 import 'common/my_home.dart';
 import 'data_remote/weather/impl/weather_service_impl.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider(create: (context) => WeatherProvider(WeatherServiceImpl()),)
+        ChangeNotifierProvider(create: (context) => WeatherProvider()..initData(),)
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

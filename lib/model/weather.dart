@@ -1,9 +1,3 @@
-import 'dart:convert';
-
-WeatherModel welcomeFromJson(String str) => WeatherModel.fromJson(json.decode(str));
-
-String welcomeToJson(WeatherModel data) => json.encode(data.toJson());
-
 class WeatherModel {
   WeatherModel({
     this.coord,
@@ -38,16 +32,16 @@ class WeatherModel {
   int? cod;
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) => WeatherModel(
-    coord: json["coord"],
-    weather: json["weather"],
+    coord: Coord.fromJson(json["coord"]),
+    weather: (json["weather"] as List<dynamic>).map((e) => Weather.fromJson(e)).toList(),
     base: json["base"],
-    main: json["main"],
+    main: Main.fromJson(json["main"]),
     visibility: json["visibility"],
-    wind: json["wind"],
+    wind: Wind.fromJson(json["wind"]),
     rain: json["rain"],
-    clouds: json["clouds"],
+    clouds: Clouds.fromJson(json["clouds"]),
     dt: json["dt"],
-    sys: json["sys"],
+    sys: Sys.fromJson(json["sys"]),
     timezone: json["timezone"],
     id: json["id"],
     name: json["name"],
