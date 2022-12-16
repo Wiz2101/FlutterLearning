@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:weather/weather.dart';
+import 'package:weather_app/components/weather_provider.dart';
+import 'package:weather_app/data_remote/weather/impl/weather_service_impl.dart';
+import 'package:weather_app/data_remote/weather/weather_service.dart';
+import 'package:weather_app/model/weather.dart';
 
 class WeatherShowing extends StatefulWidget {
+
   const WeatherShowing({super.key});
 
   @override
@@ -10,8 +14,22 @@ class WeatherShowing extends StatefulWidget {
 }
 
 class _Weather extends State<WeatherShowing> {
+  late final WeatherProvider weatherProvider;
+  final WeatherModel? weatherModel = null;
+  @override
+  Future<void> initState() async {
+    final WeatherService weatherService = WeatherServiceImpl();
+    final fetchedWeather = await weatherService.fetchAPI(10, 20);
+    super.initState();
+
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    final weatherResponse =  weatherProvider.fetchAPI(10, 20);
+
+
     final today = DateTime.now();
     String todayStr = DateFormat('EEE, MMMM  dd  hh:mm aa').format(today);
 
@@ -21,8 +39,6 @@ class _Weather extends State<WeatherShowing> {
     final feelLikeTemp = '24\u00B0';
     final overallTemp =
         '$highestTemp / $lowestTemp |  Feels like $feelLikeTemp';
-
-
 
     return Scaffold(
       backgroundColor: Colors.transparent,
