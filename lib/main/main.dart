@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/components/weather_provider.dart';
-import 'package:weather_app/data_remote/weather/weather_service.dart';
 
-import 'common/my_home.dart';
-import 'data_remote/weather/impl/weather_service_impl.dart';
+import '../common/my_home.dart';
 
 void main() async {
   runApp(const MyApp());

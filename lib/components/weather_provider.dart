@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_app/data_remote/permission/PermissionService.dart';
-import 'package:weather_app/data_remote/permission/impl/PermissionServiceImpl.dart';
-import 'package:weather_app/data_remote/weather/impl/weather_service_impl.dart';
-
-import '../data_remote/weather/weather_service.dart';
-import '../model/weather.dart';
+import '../data/data_remote/permission/PermissionService.dart';
+import '../data/data_remote/permission/impl/PermissionServiceImpl.dart';
+import '../data/data_remote/weather/impl/weather_service_impl.dart';
+import '../data/data_remote/weather/weather_service.dart';
+import '../domain/entities/weather.dart';
 
 class WeatherProvider with ChangeNotifier {
   final WeatherService weatherService = WeatherServiceImpl();
-  final PermissionService permissionService = PermissionServiceImpl();
+  final PermissionService permissionService = PermissionServiceImpl() as PermissionService;
   WeatherModel? weatherModel;
 
   static final WeatherProvider instance = WeatherProvider();

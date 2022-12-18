@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/components/weather_provider.dart';
-import 'package:weather_app/model/weather.dart';
+import 'package:weather_app/domain/entities/weather.dart';
 
 class WeatherShowing extends StatefulWidget {
 
