@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/components/weather_showing.dart';
+import 'package:weather_app/presentation/feature/weather/weather_screen.dart';
 
-import 'app_bar.dart';
+import '../../../common_widget/app_bar_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   end: Alignment.bottomRight,
                   stops: [0.01, 1],
                   colors: [Color(0xff7038f0), Color(0xff86b7f5)],
-                )), child: const WeatherShowing(),),
+                )), child: const WeatherScreen(),),
       ),
     );
   }

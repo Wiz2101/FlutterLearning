@@ -1,5 +1,5 @@
 class AppConstant {
   static const openWeatherApiKey = '5026695071076740e76858b66931057c';
-  static const String unit = 'metric';
+  static const unit = 'metric';
 
 }

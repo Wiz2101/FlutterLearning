@@ -1,5 +1,5 @@
-import '../entities/weather.dart';
+import '../entities/weather/weather.dart';
 
 abstract class WeatherRepository {
-  Future<WeatherModel?> getCurrentWeather(double lat, double lon);
+  Future<Weather?> getCurrentWeather(double lat, double lon);
 }

@@ -1,10 +1,18 @@
-import 'package:weather_app/domain/entities/weather.dart';
+import 'package:weather_app/data/data_source/api/api_client.dart';
+import 'package:weather_app/domain/entities/weather/weather.dart';
 import '../../domain/repositories/weather_repository.dart';
 
 class WeatherRepositoryImpl extends WeatherRepository {
+  WeatherRepositoryImpl(this._weatherAPI);
+  final WeatherAPI _weatherAPI;
+
   @override
-  Future<WeatherModel?> getCurrentWeather(double lat, double lon) {
-    // TODO: implement getCurrentWeather
-    throw UnimplementedError();
+  Future<Weather?> getCurrentWeather(double lat, double lon) async {
+    final cityNameResponse = await _weatherAPI.getCurrentCityLocation(lat, lon);
+    final cityNameDetail = cityNameResponse?.first.name ?? '';
+    final currentWeather = await _weatherAPI.getCurrentWeather(cityNameDetail);
+    print(currentWeather);
+    return currentWeather;
+
   }
 }

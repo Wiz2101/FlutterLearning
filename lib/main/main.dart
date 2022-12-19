@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/components/weather_provider.dart';
+import 'package:weather_app/presentation/provider/weather/weather_provider.dart';
 
-import '../common/my_home.dart';
+import '../presentation/feature/home/page/my_home.dart';
 
 void main() async {
   runApp(const MyApp());
