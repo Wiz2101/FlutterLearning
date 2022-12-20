@@ -8,11 +8,9 @@ class WeatherRepositoryImpl extends WeatherRepository {
 
   @override
   Future<Weather?> getCurrentWeather(double lat, double lon) async {
-    final cityNameResponse = await _weatherAPI.getCurrentCityLocation(lat, lon);
+    final cityNameResponse = await _weatherAPI.getCurrentGeolocation(lat, lon);
     final cityNameDetail = cityNameResponse?.first.name ?? '';
     final currentWeather = await _weatherAPI.getCurrentWeather(cityNameDetail);
-    print(currentWeather);
     return currentWeather;
-
   }
 }

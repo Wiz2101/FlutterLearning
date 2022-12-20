@@ -805,8 +805,11 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Main {
   double? get temp => throw _privateConstructorUsedError;
+  @JsonKey(name: 'feels_like')
   double? get feelsLike => throw _privateConstructorUsedError;
+  @JsonKey(name: 'temp_min')
   double? get tempMin => throw _privateConstructorUsedError;
+  @JsonKey(name: 'temp_max')
   double? get tempMax => throw _privateConstructorUsedError;
   int? get pressure => throw _privateConstructorUsedError;
   int? get humidity => throw _privateConstructorUsedError;
@@ -827,9 +830,9 @@ abstract class $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {double? temp,
-      double? feelsLike,
-      double? tempMin,
-      double? tempMax,
+      @JsonKey(name: 'feels_like') double? feelsLike,
+      @JsonKey(name: 'temp_min') double? tempMin,
+      @JsonKey(name: 'temp_max') double? tempMax,
       int? pressure,
       int? humidity,
       @JsonKey(name: 'sea_level') int? seaLevel,
@@ -903,9 +906,9 @@ abstract class _$$_MainCopyWith<$Res> implements $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {double? temp,
-      double? feelsLike,
-      double? tempMin,
-      double? tempMax,
+      @JsonKey(name: 'feels_like') double? feelsLike,
+      @JsonKey(name: 'temp_min') double? tempMin,
+      @JsonKey(name: 'temp_max') double? tempMax,
       int? pressure,
       int? humidity,
       @JsonKey(name: 'sea_level') int? seaLevel,
@@ -972,9 +975,9 @@ class __$$_MainCopyWithImpl<$Res> extends _$MainCopyWithImpl<$Res, _$_Main>
 class _$_Main implements _Main {
   const _$_Main(
       {this.temp,
-      this.feelsLike,
-      this.tempMin,
-      this.tempMax,
+      @JsonKey(name: 'feels_like') this.feelsLike,
+      @JsonKey(name: 'temp_min') this.tempMin,
+      @JsonKey(name: 'temp_max') this.tempMax,
       this.pressure,
       this.humidity,
       @JsonKey(name: 'sea_level') this.seaLevel,
@@ -985,10 +988,13 @@ class _$_Main implements _Main {
   @override
   final double? temp;
   @override
+  @JsonKey(name: 'feels_like')
   final double? feelsLike;
   @override
+  @JsonKey(name: 'temp_min')
   final double? tempMin;
   @override
+  @JsonKey(name: 'temp_max')
   final double? tempMax;
   @override
   final int? pressure;
@@ -1048,9 +1054,9 @@ class _$_Main implements _Main {
 abstract class _Main implements Main {
   const factory _Main(
       {final double? temp,
-      final double? feelsLike,
-      final double? tempMin,
-      final double? tempMax,
+      @JsonKey(name: 'feels_like') final double? feelsLike,
+      @JsonKey(name: 'temp_min') final double? tempMin,
+      @JsonKey(name: 'temp_max') final double? tempMax,
       final int? pressure,
       final int? humidity,
       @JsonKey(name: 'sea_level') final int? seaLevel,
@@ -1061,10 +1067,13 @@ abstract class _Main implements Main {
   @override
   double? get temp;
   @override
+  @JsonKey(name: 'feels_like')
   double? get feelsLike;
   @override
+  @JsonKey(name: 'temp_min')
   double? get tempMin;
   @override
+  @JsonKey(name: 'temp_max')
   double? get tempMax;
   @override
   int? get pressure;

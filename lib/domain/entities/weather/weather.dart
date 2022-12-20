@@ -48,8 +48,11 @@ class Coord with _$Coord {
 class Main with _$Main {
   const factory Main({
     double? temp,
+    @JsonKey(name: 'feels_like')
     double? feelsLike,
+    @JsonKey(name: 'temp_min')
     double? tempMin,
+    @JsonKey(name: 'temp_max')
     double? tempMax,
     int? pressure,
     int? humidity,
@@ -105,3 +108,5 @@ class Wind with _$Wind {
 
   factory Wind.fromJson(Map<String, dynamic> json) => _$WindFromJson(json);
 }
+
+

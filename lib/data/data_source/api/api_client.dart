@@ -13,7 +13,7 @@ abstract class WeatherAPI {
   factory WeatherAPI(Dio dio, {String? baseUrl}) = _WeatherAPI;
 
   @GET('geo/1.0/reverse')
-  Future<List<Geolocation>?> getCurrentCityLocation(
+  Future<List<Geolocation>?> getCurrentGeolocation(
       @Query('lat') double lat, @Query('lon') double lon,
       {@Query('limit') int limit = 1,
       @Query('appid') String apiKey = AppConstant.openWeatherApiKey});

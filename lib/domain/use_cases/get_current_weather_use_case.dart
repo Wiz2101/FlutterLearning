@@ -1,4 +1,4 @@
-import 'package:weather_app/data/params/WeatherParam.dart';
+import 'package:weather_app/data/params/InParams.dart';
 import 'package:weather_app/domain/repositories/weather_repository.dart';
 import 'package:weather_app/domain/use_cases/use_case_base.dart';
 

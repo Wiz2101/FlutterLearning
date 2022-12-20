@@ -21,7 +21,7 @@ class _WeatherAPI implements WeatherAPI {
   String? baseUrl;
 
   @override
-  Future<List<Geolocation>?> getCurrentCityLocation(
+  Future<List<Geolocation>?> getCurrentGeolocation(
     lat,
     lon, {
     limit = 1,
