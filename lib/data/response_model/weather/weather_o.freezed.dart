@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'weather.dart';
+part of 'weather_o.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Weather _$WeatherFromJson(Map<String, dynamic> json) {
-  return _Weather.fromJson(json);
+WeatherOModel _$WeatherOModelFromJson(Map<String, dynamic> json) {
+  return _WeatherOModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Weather {
+mixin _$WeatherOModel {
   Coord? get coord => throw _privateConstructorUsedError;
   @JsonKey(name: 'weather')
   List<WeatherDetail>? get weatherDetails => throw _privateConstructorUsedError;
@@ -37,13 +37,15 @@ mixin _$Weather {
   int? get cod => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $WeatherCopyWith<Weather> get copyWith => throw _privateConstructorUsedError;
+  $WeatherOModelCopyWith<WeatherOModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WeatherCopyWith<$Res> {
-  factory $WeatherCopyWith(Weather value, $Res Function(Weather) then) =
-      _$WeatherCopyWithImpl<$Res, Weather>;
+abstract class $WeatherOModelCopyWith<$Res> {
+  factory $WeatherOModelCopyWith(
+          WeatherOModel value, $Res Function(WeatherOModel) then) =
+      _$WeatherOModelCopyWithImpl<$Res, WeatherOModel>;
   @useResult
   $Res call(
       {Coord? coord,
@@ -70,9 +72,9 @@ abstract class $WeatherCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
-    implements $WeatherCopyWith<$Res> {
-  _$WeatherCopyWithImpl(this._value, this._then);
+class _$WeatherOModelCopyWithImpl<$Res, $Val extends WeatherOModel>
+    implements $WeatherOModelCopyWith<$Res> {
+  _$WeatherOModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -231,10 +233,11 @@ class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
 }
 
 /// @nodoc
-abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
-  factory _$$_WeatherCopyWith(
-          _$_Weather value, $Res Function(_$_Weather) then) =
-      __$$_WeatherCopyWithImpl<$Res>;
+abstract class _$$_WeatherOModelCopyWith<$Res>
+    implements $WeatherOModelCopyWith<$Res> {
+  factory _$$_WeatherOModelCopyWith(
+          _$_WeatherOModel value, $Res Function(_$_WeatherOModel) then) =
+      __$$_WeatherOModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -268,10 +271,11 @@ abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WeatherCopyWithImpl<$Res>
-    extends _$WeatherCopyWithImpl<$Res, _$_Weather>
-    implements _$$_WeatherCopyWith<$Res> {
-  __$$_WeatherCopyWithImpl(_$_Weather _value, $Res Function(_$_Weather) _then)
+class __$$_WeatherOModelCopyWithImpl<$Res>
+    extends _$WeatherOModelCopyWithImpl<$Res, _$_WeatherOModel>
+    implements _$$_WeatherOModelCopyWith<$Res> {
+  __$$_WeatherOModelCopyWithImpl(
+      _$_WeatherOModel _value, $Res Function(_$_WeatherOModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -292,7 +296,7 @@ class __$$_WeatherCopyWithImpl<$Res>
     Object? name = freezed,
     Object? cod = freezed,
   }) {
-    return _then(_$_Weather(
+    return _then(_$_WeatherOModel(
       coord: freezed == coord
           ? _value.coord
           : coord // ignore: cast_nullable_to_non_nullable
@@ -355,8 +359,8 @@ class __$$_WeatherCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_Weather implements _Weather {
-  const _$_Weather(
+class _$_WeatherOModel implements _WeatherOModel {
+  _$_WeatherOModel(
       {this.coord,
       @JsonKey(name: 'weather') final List<WeatherDetail>? weatherDetails,
       this.base,
@@ -373,8 +377,8 @@ class _$_Weather implements _Weather {
       this.cod})
       : _weatherDetails = weatherDetails;
 
-  factory _$_Weather.fromJson(Map<String, dynamic> json) =>
-      _$$_WeatherFromJson(json);
+  factory _$_WeatherOModel.fromJson(Map<String, dynamic> json) =>
+      _$$_WeatherOModelFromJson(json);
 
   @override
   final Coord? coord;
@@ -416,14 +420,14 @@ class _$_Weather implements _Weather {
 
   @override
   String toString() {
-    return 'Weather(coord: $coord, weatherDetails: $weatherDetails, base: $base, main: $main, visibility: $visibility, wind: $wind, rain: $rain, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
+    return 'WeatherOModel(coord: $coord, weatherDetails: $weatherDetails, base: $base, main: $main, visibility: $visibility, wind: $wind, rain: $rain, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Weather &&
+            other is _$_WeatherOModel &&
             (identical(other.coord, coord) || other.coord == coord) &&
             const DeepCollectionEquality()
                 .equals(other._weatherDetails, _weatherDetails) &&
@@ -465,12 +469,12 @@ class _$_Weather implements _Weather {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeatherCopyWith<_$_Weather> get copyWith =>
-      __$$_WeatherCopyWithImpl<_$_Weather>(this, _$identity);
+  _$$_WeatherOModelCopyWith<_$_WeatherOModel> get copyWith =>
+      __$$_WeatherOModelCopyWithImpl<_$_WeatherOModel>(this, _$identity);
 }
 
-abstract class _Weather implements Weather {
-  const factory _Weather(
+abstract class _WeatherOModel implements WeatherOModel {
+  factory _WeatherOModel(
       {final Coord? coord,
       @JsonKey(name: 'weather') final List<WeatherDetail>? weatherDetails,
       final String? base,
@@ -484,9 +488,10 @@ abstract class _Weather implements Weather {
       final int? timezone,
       final int? id,
       final String? name,
-      final int? cod}) = _$_Weather;
+      final int? cod}) = _$_WeatherOModel;
 
-  factory _Weather.fromJson(Map<String, dynamic> json) = _$_Weather.fromJson;
+  factory _WeatherOModel.fromJson(Map<String, dynamic> json) =
+      _$_WeatherOModel.fromJson;
 
   @override
   Coord? get coord;
@@ -519,7 +524,7 @@ abstract class _Weather implements Weather {
   int? get cod;
   @override
   @JsonKey(ignore: true)
-  _$$_WeatherCopyWith<_$_Weather> get copyWith =>
+  _$$_WeatherOModelCopyWith<_$_WeatherOModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'weather.dart';
+part of 'weather_o.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Weather _$$_WeatherFromJson(Map<String, dynamic> json) => _$_Weather(
+_$_WeatherOModel _$$_WeatherOModelFromJson(Map<String, dynamic> json) =>
+    _$_WeatherOModel(
       coord: json['coord'] == null
           ? null
           : Coord.fromJson(json['coord'] as Map<String, dynamic>),

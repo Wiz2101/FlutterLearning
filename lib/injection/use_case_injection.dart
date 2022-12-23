@@ -2,6 +2,7 @@ import 'package:weather_app/domain/repositories/geolocation_repository.dart';
 import 'package:weather_app/domain/repositories/weather_repository.dart';
 import 'package:weather_app/domain/use_cases/get_current_geolocation_use_case.dart';
 import 'package:weather_app/domain/use_cases/get_current_weather_use_case.dart';
+import 'package:weather_app/domain/use_cases/get_hourly_weather_forecast_use_case.dart';
 import 'package:weather_app/injection/injector.dart';
 
 class UserCaseInjection {
@@ -13,6 +14,11 @@ class UserCaseInjection {
     );
     injector.registerLazySingleton<GetCurrentWeatherUseCase>(
       () => GetCurrentWeatherUseCase(
+        injector.get<WeatherRepository>(),
+      ),
+    );
+    injector.registerLazySingleton<GetHourlyWeatherForecastUseCase>(
+      () => GetHourlyWeatherForecastUseCase(
         injector.get<WeatherRepository>(),
       ),
     );

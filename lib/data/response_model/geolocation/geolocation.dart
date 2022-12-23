@@ -3,9 +3,9 @@ part 'geolocation.g.dart';
 
 part 'geolocation.freezed.dart';
 
-@freezed
-class Geolocation with _$Geolocation {
-  const factory Geolocation ({
+@Freezed(toJson: false)
+class GeolocationModel with _$GeolocationModel {
+  const factory GeolocationModel ({
     String? name,
     @JsonKey(name: 'local_names') LocalName? localNames,
     double? lat,
@@ -13,8 +13,8 @@ class Geolocation with _$Geolocation {
     String? country
   }) = _Geolocation;
 
-  factory Geolocation.fromJson(Map<String, dynamic> json) =>
-      _$GeolocationFromJson(json);
+  factory GeolocationModel.fromJson(Map<String, dynamic> json) =>
+      _$GeolocationModelFromJson(json);
 }
 
 @freezed

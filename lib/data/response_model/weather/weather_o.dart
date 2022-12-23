@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'weather.g.dart';
+part 'weather_o.g.dart';
 
-part 'weather.freezed.dart';
+part 'weather_o.freezed.dart';
 
 @Freezed(toJson: false)
-class Weather with _$Weather{
-  const factory Weather({
+class WeatherOModel with _$WeatherOModel {
+  factory WeatherOModel({
     final Coord? coord,
     @JsonKey(name: 'weather') List<WeatherDetail>? weatherDetails,
     String? base,
@@ -21,10 +21,10 @@ class Weather with _$Weather{
     int? id,
     String? name,
     int? cod,
-  }) = _Weather;
+  }) = _WeatherOModel;
 
-  factory Weather.fromJson(Map<String, dynamic> json) =>
-      _$WeatherFromJson(json);
+  factory WeatherOModel.fromJson(Map<String, dynamic> json) =>
+      _$WeatherOModelFromJson(json);
 }
 
 @freezed

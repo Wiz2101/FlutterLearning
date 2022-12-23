@@ -5,8 +5,13 @@ import 'package:weather_app/injection/injector.dart';
 class InfraInjection {
   static void inject() {
     // API
-    injector.registerLazySingleton<WeatherAPI>(
-      () => WeatherAPI(Dio()),
+    injector.registerLazySingleton<OpenWeatherSiteAPI>(
+      () => OpenWeatherSiteAPI(Dio()),
     );
+
+    injector.registerLazySingleton<WeatherApiSiteAPI>(
+          () => WeatherApiSiteAPI(Dio()),
+    );
+
   }
 }

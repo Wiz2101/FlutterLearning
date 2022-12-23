@@ -17,15 +17,6 @@ _$_Geolocation _$$_GeolocationFromJson(Map<String, dynamic> json) =>
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$$_GeolocationToJson(_$_Geolocation instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'local_names': instance.localNames,
-      'lat': instance.lat,
-      'lon': instance.lon,
-      'country': instance.country,
-    };
-
 _$_LocalName _$$_LocalNameFromJson(Map<String, dynamic> json) => _$_LocalName(
       ru: json['ru'] as String?,
       ja: json['ja'] as String?,

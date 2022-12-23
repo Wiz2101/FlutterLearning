@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Geolocation _$GeolocationFromJson(Map<String, dynamic> json) {
+GeolocationModel _$GeolocationModelFromJson(Map<String, dynamic> json) {
   return _Geolocation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Geolocation {
+mixin _$GeolocationModel {
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'local_names')
   LocalName? get localNames => throw _privateConstructorUsedError;
@@ -27,17 +27,16 @@ mixin _$Geolocation {
   double? get lon => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GeolocationCopyWith<Geolocation> get copyWith =>
+  $GeolocationModelCopyWith<GeolocationModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GeolocationCopyWith<$Res> {
-  factory $GeolocationCopyWith(
-          Geolocation value, $Res Function(Geolocation) then) =
-      _$GeolocationCopyWithImpl<$Res, Geolocation>;
+abstract class $GeolocationModelCopyWith<$Res> {
+  factory $GeolocationModelCopyWith(
+          GeolocationModel value, $Res Function(GeolocationModel) then) =
+      _$GeolocationModelCopyWithImpl<$Res, GeolocationModel>;
   @useResult
   $Res call(
       {String? name,
@@ -50,9 +49,9 @@ abstract class $GeolocationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GeolocationCopyWithImpl<$Res, $Val extends Geolocation>
-    implements $GeolocationCopyWith<$Res> {
-  _$GeolocationCopyWithImpl(this._value, this._then);
+class _$GeolocationModelCopyWithImpl<$Res, $Val extends GeolocationModel>
+    implements $GeolocationModelCopyWith<$Res> {
+  _$GeolocationModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +106,7 @@ class _$GeolocationCopyWithImpl<$Res, $Val extends Geolocation>
 
 /// @nodoc
 abstract class _$$_GeolocationCopyWith<$Res>
-    implements $GeolocationCopyWith<$Res> {
+    implements $GeolocationModelCopyWith<$Res> {
   factory _$$_GeolocationCopyWith(
           _$_Geolocation value, $Res Function(_$_Geolocation) then) =
       __$$_GeolocationCopyWithImpl<$Res>;
@@ -126,7 +125,7 @@ abstract class _$$_GeolocationCopyWith<$Res>
 
 /// @nodoc
 class __$$_GeolocationCopyWithImpl<$Res>
-    extends _$GeolocationCopyWithImpl<$Res, _$_Geolocation>
+    extends _$GeolocationModelCopyWithImpl<$Res, _$_Geolocation>
     implements _$$_GeolocationCopyWith<$Res> {
   __$$_GeolocationCopyWithImpl(
       _$_Geolocation _value, $Res Function(_$_Geolocation) _then)
@@ -167,7 +166,7 @@ class __$$_GeolocationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class _$_Geolocation implements _Geolocation {
   const _$_Geolocation(
       {this.name,
@@ -193,7 +192,7 @@ class _$_Geolocation implements _Geolocation {
 
   @override
   String toString() {
-    return 'Geolocation(name: $name, localNames: $localNames, lat: $lat, lon: $lon, country: $country)';
+    return 'GeolocationModel(name: $name, localNames: $localNames, lat: $lat, lon: $lon, country: $country)';
   }
 
   @override
@@ -219,16 +218,9 @@ class _$_Geolocation implements _Geolocation {
   @pragma('vm:prefer-inline')
   _$$_GeolocationCopyWith<_$_Geolocation> get copyWith =>
       __$$_GeolocationCopyWithImpl<_$_Geolocation>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_GeolocationToJson(
-      this,
-    );
-  }
 }
 
-abstract class _Geolocation implements Geolocation {
+abstract class _Geolocation implements GeolocationModel {
   const factory _Geolocation(
       {final String? name,
       @JsonKey(name: 'local_names') final LocalName? localNames,

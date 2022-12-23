@@ -10,12 +10,13 @@ class RepositoryInjection {
   static void inject() {
     injector.registerLazySingleton<WeatherRepository>(
       () => WeatherRepositoryImpl(
-        injector.get<WeatherAPI>(),
+        injector.get<OpenWeatherSiteAPI>(),
+        injector.get<WeatherApiSiteAPI>(),
       ),
     );
     injector.registerLazySingleton<GeolocationRepository>(
       () => GeolocationRepositoryImpl(
-        injector.get<WeatherAPI>(),
+        injector.get<OpenWeatherSiteAPI>(),
       ),
     );
   }
